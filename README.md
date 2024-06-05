@@ -267,52 +267,53 @@ RECEIVE
   }
 }
 
-字段含义
+필드의미
 
-id 任务ID
-action 任务类型 (IMAGINE, UPSCALE, VARIATION 等参考下方 action 值说明)
-status 任务状态 (PENDING, STARTED, SUBMITTED, RUNNING, FINISHED, FAILED)
-submitTime 任务创建时间
-startTime 开始时间
-finishTime 完成时间
-progress 任务进度 0% - 100%，不管成功还是失败，最终状态为100%
-imageUrl 图片地址 cdn替换后的地址
-imageRawUrl 图片原始地址 国内无法访问
-prompt 提示词
-finalPrompt MJ最终使用的提示词
-params 任务相关参数
-images 任务相关图片，格式为url数组
-description 图生文的结果，只有describe任务有
-failReason 任务失败原因，只要此处值不为空代表任务失败
-discordId 任务所属的discord id
-data 任务自定义数据
-buttons 任务操作按钮，其中 custom_id 为 /image/action 接口的 customId 参数
-action 值说明
+id     작업ID
+action 작업유형 (IMAGINE, UPSCALE, VARIATION 아래를참조 action 값설명)
+status 작업상태 (PENDING, STARTED, SUBMITTED, RUNNING, FINISHED, FAILED)
+submitTime 작업생성시간
+startTime 시작시간
+finishTime 종료시간
+progress 작업진행률 0% - 100%，성공하든 실패하든 최종상태는 100%임.
+imageUrl 이미지주소 cdn교체주소
+imageRawUrl 이미지원본주소 (국내접근불가)
+prompt 프롬프트
+finalPrompt 최종프롬프트
+params 작업관련매개변수
+images 작업관련이미지，(URL배열)
+description 그림해석결과，작업설명
+failReason 작업실패원인，이 갑이 비어있지않으면, 작업이 실패한 것임.
+discordId discord에 할당된 작업 id
+data 작업맞춤데이터
+buttons 작업실행버튼，CustomerID가 /image/action인터페이스의 CustomerID매개변수임
+action 값 설명
 
-IMAGINE 画图
-UPSCALE 选图
-VARIATION 局部重绘
-REROLL 重新生成
-DESCRIBE 图生文
-BLEND 图片混合
-ZOOMOUT 扩图
-ZOOMOUT_CUSTOM 自定义扩图
-PANLEFT 扩图左移
-PANRIGHT 扩图右移
-PANUP 扩图上移
-PANDOWN 扩图下移
-MAKE_SQUARE 扩图成正方形
-PIC_READER 从图片中提取文字后生成新图
-CANCEL_JOB 取消任务
-UPSCALE_V5_2X v5 2倍高清图
-UPSCALE_V5_4X v5 4倍高清图
-UPSCALE_V6_2X_CREATIVE v6 2倍创意高清图
-UPSCALE_V6_2X_SUBTLE v6 2倍微调高清图
-VARIATION_STRONG 强烈变换
-VARIATION_SUBTLE 微调变换
-VARIATION_REGION 局部重绘
-notifyUrl 通知格式
-如果有设置 notifyUrl 参数，当任务状态变化时会向此地址发送 POST 请求，请求内容为任务状态的 json 格式，格式与 /task/status 接口返回的data内容一致。
+IMAGINE 그림그리기
+UPSCALE 이미지선택
+VARIATION 부분그리기
+REROLL 다시생성
+DESCRIBE 이미지에서 텍스트로
+BLEND 이미지혼합
+ZOOMOUT 이미지 확장
+ZOOMOUT_CUSTOM 사용자정의 이미지 확대
+PANLEFT  그림을 왼쪽으로 확장
+PANRIGHT 그림을 오른쪽으로 확장
+PANUP 그림을 윗쪽으로 확장
+PANDOWN 그림을 아랫쪽으로 확장
+MAKE_SQUARE 그림을 정사각형으로 확장
+PIC_READER 이미지에서 텍스트를 추출한 후 새 이미지를 생성.
+CANCEL_JOB 작업 취소
+UPSCALE_V5_2X v5 2배고화질
+UPSCALE_V5_4X v5 4배고화질
+UPSCALE_V6_2X_CREATIVE v6 2배 창의 고화질
+UPSCALE_V6_2X_SUBTLE v6 2배 미세조정 고해상도 이미지
+VARIATION_STRONG 강렬한 변환
+VARIATION_SUBTLE 미세조정 변환
+VARIATION_REGION 부분 재 그리기
+notifyUrl 알림형식
+만약 notifyUrl 매개변수가 설정되어 있다면, 작업 상태가 변경될 때 이 주소로 POST 요청을 보냅니다. 
+요청 내용은 작업 상태의 JSON 형식이며, 이는 /task/status 인터페이스가 반환하는 data 내용과 동일합니다
 
 {
     "id": "1710816049856103374",
