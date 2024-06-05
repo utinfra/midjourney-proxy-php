@@ -33,7 +33,9 @@ config/plugin/webman/midjourney/process.php 파일을 열고 다음과 같이 �
 use Webman\Midjourney\TaskStore\File;
 
 return [
+
     'server' => [
+    
         'handler' => Webman\Midjourney\Server::class,
         'listen' => 'http://0.0.0.0:8686',
         'reloadable' => false,
